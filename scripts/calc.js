@@ -10,4 +10,8 @@ function subtract(num1, num2) {
     return num1 - num2;
 }
 
-module.exports = { addition, divide, subtract };
+function multiply(num1, num2) {
+    return num1 * num2;
+}
+
+module.exports = { addition, divide, subtract, multiply };

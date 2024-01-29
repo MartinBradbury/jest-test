@@ -1,6 +1,7 @@
 const addition = require("../calc").addition;
 const divide = require("../calc").divide;
 const subtract = require("../calc").subtract;
+const multiply = require("../calc").multiply;
 
 describe("Calculator", () => {
     describe("Addition function", () => {
@@ -20,5 +21,13 @@ describe("Calculator", () => {
         test("should return 20 for 35 - 15", () => {
             expect(subtract(35, 15)).toBe(20);
         });
+        test("should return 2 when 5 -3", () => {
+            expect(subtract(5, 3)).toBe(2);
+        })
     });
+    describe("Multiply function", () => {
+        test("should return 20 for 10*2", () => {
+            expect(multiply(10, 2)).toBe(20);
+        })
+    })
 });
