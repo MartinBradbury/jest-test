@@ -30,4 +30,12 @@ describe("Calculator", () => {
             expect(multiply(10, 2)).toBe(20);
         })
     })
+    describe("input validation", () => {
+        test("should return NaN for string input", () => {
+            expect(isNaN(addition('abc', 'def'))).toBe(true);
+            expect(isNaN(divide('abc', 'def'))).toBe(true);
+            expect(isNaN(subtract('abc', 'def'))).toBe(true);
+            expect(isNaN(multiply('abc', 'def'))).toBe(true);
+        })
+    })
 });
