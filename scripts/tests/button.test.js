@@ -4,17 +4,21 @@
 
 const buttonClick = require("../button");
 
-describe("DOM Test", () => {
-    beforeEach(() => {
-        document.body.innerHTML = '<p id="par"></p>'; // Load only this part of the DOM to test
-    });
+beforeAll(() => {
+    let fs = require("fs");
+    let fileContents = fs.readFileSync("index.html", "utf-8");
+    document.open();
+    document.write(fileContents);
+    document.close();
+});
 
-    afterEach(() => {
-        document.body.innerHTML = ''; // Clean up the DOM after each test
+describe("DOM tests", () => {
+    test("Expects content to change", () => {
+        buttonClick();
+        expect(document.getElementById("par")
+            .innerHTML).toEqual("You Clicked");
     });
-
-    test("expect p content to change", () => {
-        buttonClick(); // calls the button click function
-        expect(document.getElementById('par').innerHTML).toEqual("You Clicked");
+    test("h1 should exist", () => {
+        expect(document.getElementsByTagName("h1").length).toBe(1);
     });
 });
